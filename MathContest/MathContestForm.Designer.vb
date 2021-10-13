@@ -41,9 +41,15 @@ Partial Class MathContestForm
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.MathProblemGroupBox.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -229,11 +235,60 @@ Partial Class MathContestForm
         Me.RadioButton4.Text = "Divide"
         Me.RadioButton4.UseVisualStyleBackColor = True
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Button4)
+        Me.GroupBox3.Controls.Add(Me.Button3)
+        Me.GroupBox3.Controls.Add(Me.Button2)
+        Me.GroupBox3.Controls.Add(Me.Button1)
+        Me.GroupBox3.Location = New System.Drawing.Point(748, 44)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(346, 556)
+        Me.GroupBox3.TabIndex = 3
+        Me.GroupBox3.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(30, 44)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(285, 92)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(30, 177)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(285, 92)
+        Me.Button2.TabIndex = 1
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(30, 308)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(285, 92)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(30, 434)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(285, 92)
+        Me.Button4.TabIndex = 3
+        Me.Button4.Text = "Exit"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'MathContestForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1736, 1093)
+        Me.ClientSize = New System.Drawing.Size(1161, 689)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.MathProblemGroupBox)
         Me.Controls.Add(Me.GroupBox1)
@@ -245,6 +300,7 @@ Partial Class MathContestForm
         Me.MathProblemGroupBox.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -268,4 +324,9 @@ Partial Class MathContestForm
     Friend WithEvents RadioButton3 As RadioButton
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
 End Class
