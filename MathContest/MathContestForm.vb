@@ -15,7 +15,11 @@ Public Class MathContestForm
         Me.Close()
     End Sub
 
-    Private Sub TextBox2_Leave(sender As Object, e As EventArgs) Handles StudentAgeTextBox.Leave
-        MsgBox("Thanks!")
+    Private Sub StudentAgeTextBox_Leave(sender As Object, e As EventArgs) Handles StudentAgeTextBox.Leave
+        If CInt(StudentAgeTextBox.Text) < 7 Or CInt(StudentAgeTextBox.Text) > 11 Then
+            MsgBox("This isn't for your age.")
+        Else
+            MsgBox("We have a problem here.")
+        End If
     End Sub
 End Class
