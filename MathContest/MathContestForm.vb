@@ -11,15 +11,30 @@ Public Class MathContestForm
         AddRadioButton.Checked = True
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+    Private Sub ExitCommand(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
 
-    Private Sub StudentAgeTextBox_Leave(sender As Object, e As EventArgs) Handles StudentAgeTextBox.Leave
-        If CInt(StudentAgeTextBox.Text) < 7 Or CInt(StudentAgeTextBox.Text) > 11 Then
-            MsgBox("This isn't for your age.")
-        Else
-            MsgBox("We have a problem here.")
-        End If
+    Private Sub AgeCheck(sender As Object, e As EventArgs) Handles StudentAgeTextBox.Leave
+        Try
+            If CInt(StudentAgeTextBox.Text) < 7 Or CInt(StudentAgeTextBox.Text) > 11 Then
+                MsgBox("Student not eligible to compete.")
+                StudentAgeTextBox.Text = ""
+            End If
+        Catch ex As Exception
+            StudentAgeTextBox.Text = ""
+            StudentAgeTextBox.Focus()
+        End Try
+    End Sub
+
+    Private Sub GradeCheck(sender As Object, e As EventArgs) Handles StudentGradeTextBox.Leave
+        Try
+            If CInt(StudentGradeTextBox.Text) < 1 Or CInt(StudentGradeTextBox.Text) > 4 Then
+                MsgBox("Student not eligible to compete.")
+                StudentGradeTextBox.Text = ""
+            End If
+        Catch ex As Exception
+            StudentGradeTextBox.Text = ""
+        End Try
     End Sub
 End Class
