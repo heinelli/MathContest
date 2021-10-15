@@ -82,7 +82,8 @@ Public Class MathContestForm
         If StudentAnswerTextBox.Text = CStr(correctAnswer) Then
             MsgBox("Congratulations!")
         Else
-            MsgBox("Wrong!")
+            MsgBox("Wrong!
+The correct answer is " & correctAnswer)
         End If
 
         'Dim operationType As Integer = RandomOperator()
@@ -105,5 +106,15 @@ Public Class MathContestForm
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         AddRadioButton.Checked = True
+        FirstNumberTextBox.Text = ""
+        SecondNumberTextBox.Text = ""
+        StudentAnswerTextBox.Text = ""
+        StudentNameTextBox.Text = ""
+        StudentAgeTextBox.Text = ""
+        StudentGradeTextBox.Text = ""
+    End Sub
+
+    Private Sub DivideRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles DivideRadioButton.Click
+        MsgBox("Round any value at 0.5 or greater up. Round any value less than 0.5 down.")
     End Sub
 End Class
