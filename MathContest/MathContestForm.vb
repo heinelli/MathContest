@@ -13,8 +13,6 @@ Public Class MathContestForm
         Dim correctAnswer As Integer = num1 + num2
 
         AddRadioButton.Checked = True
-        'FirstNumberTextBox.Text = CStr(num1)
-        'SecondNumberTextBox.Text = CStr(num2)
     End Sub
 
 
@@ -66,8 +64,6 @@ Public Class MathContestForm
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         Dim correctAnswer As Integer
         Dim roundedNumber As Double
-        Dim count As Integer = NumberCount()
-        StudentNameTextBox.Text = CStr(count)
 
         If AddRadioButton.Checked = True Then
             correctAnswer = CInt(FirstNumberTextBox.Text) + CInt(SecondNumberTextBox.Text)
@@ -81,10 +77,14 @@ Public Class MathContestForm
         End If
         If StudentAnswerTextBox.Text = CStr(correctAnswer) Then
             MsgBox("Congratulations!")
+            SuccessfulAnswer += 1
         Else
             MsgBox("Wrong!
 The correct answer is " & correctAnswer)
         End If
+
+        QuestionCount += 1
+        MsgBox(SuccessfulAnswer & " out of " & QuestionCount & " questions correct.")
 
         'Dim operationType As Integer = RandomOperator()
         '    If operationType = 0 Then
@@ -98,12 +98,6 @@ The correct answer is " & correctAnswer)
         '    End If
     End Sub
 
-    Function NumberCount() As Integer
-        Dim count As Integer
-        count += 1
-        Return count
-    End Function
-
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         AddRadioButton.Checked = True
         FirstNumberTextBox.Text = ""
@@ -112,9 +106,14 @@ The correct answer is " & correctAnswer)
         StudentNameTextBox.Text = ""
         StudentAgeTextBox.Text = ""
         StudentGradeTextBox.Text = ""
+        QuestionCount = 0
+        SuccessfulAnswer = 0
     End Sub
 
     Private Sub DivideRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles DivideRadioButton.Click
         MsgBox("Round any value at 0.5 or greater up. Round any value less than 0.5 down.")
     End Sub
+
+    Private QuestionCount As Integer = 0
+    Private SuccessfulAnswer As Integer = 0
 End Class
