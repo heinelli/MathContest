@@ -65,6 +65,7 @@ Public Class MathContestForm
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         Dim correctAnswer As Integer
+        Dim roundedNumber As Double
         Dim count As Integer = NumberCount()
         StudentNameTextBox.Text = CStr(count)
 
@@ -75,9 +76,9 @@ Public Class MathContestForm
         ElseIf MultiplyRadioButton.Checked = True Then
             correctAnswer = CInt(FirstNumberTextBox.Text) * CInt(SecondNumberTextBox.Text)
         ElseIf DivideRadioButton.Checked = True Then
-            correctAnswer = CInt(FirstNumberTextBox.Text) \ CInt(SecondNumberTextBox.Text)
+            roundedNumber = Math.Round((CInt(FirstNumberTextBox.Text) / CInt(SecondNumberTextBox.Text)), MidpointRounding.AwayFromZero)
+            correctAnswer = CInt(roundedNumber)
         End If
-
         If StudentAnswerTextBox.Text = CStr(correctAnswer) Then
             MsgBox("Congratulations!")
         Else
