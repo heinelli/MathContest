@@ -13,8 +13,8 @@ Public Class MathContestForm
         Dim correctAnswer As Integer = num1 + num2
 
         AddRadioButton.Checked = True
-        FirstNumberTextBox.Text = CStr(num1)
-        SecondNumberTextBox.Text = CStr(num2)
+        'FirstNumberTextBox.Text = CStr(num1)
+        'SecondNumberTextBox.Text = CStr(num2)
     End Sub
 
 
@@ -56,23 +56,53 @@ Public Class MathContestForm
         Return rndNumber
     End Function
 
-    Function RandomOperator() As Integer
-        Dim rndOperator As Integer
-        Randomize()
-        rndOperator = CInt(System.Math.Floor(Rnd() * (3 + 1)))
-        Return rndOperator
-    End Function
+    'Function RandomOperator() As Integer
+    '    Dim rndOperator As Integer
+    '    Randomize()
+    '    rndOperator = CInt(System.Math.Floor(Rnd() * (3 + 1)))
+    '    Return rndOperator
+    'End Function
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
-        Dim operationType As Integer = RandomOperator()
-        If operationType = 0 Then
-            AddRadioButton.Checked = True
-        ElseIf operationType = 1 Then
-            SubtractRadioButton.Checked = True
-        ElseIf operationType = 2 Then
-            MultiplyRadioButton.Checked = True
-        Else
-            DivideRadioButton.Checked = True
+        Dim correctAnswer As Integer
+        Dim count As Integer = NumberCount()
+        StudentNameTextBox.Text = CStr(count)
+
+        If AddRadioButton.Checked = True Then
+            correctAnswer = CInt(FirstNumberTextBox.Text) + CInt(SecondNumberTextBox.Text)
+        ElseIf SubtractRadioButton.Checked = True Then
+            correctAnswer = CInt(FirstNumberTextBox.Text) - CInt(SecondNumberTextBox.Text)
+        ElseIf MultiplyRadioButton.Checked = True Then
+            correctAnswer = CInt(FirstNumberTextBox.Text) * CInt(SecondNumberTextBox.Text)
+        ElseIf DivideRadioButton.Checked = True Then
+            correctAnswer = CInt(FirstNumberTextBox.Text) \ CInt(SecondNumberTextBox.Text)
         End If
+
+        If StudentAnswerTextBox.Text = CStr(correctAnswer) Then
+            MsgBox("Congratulations!")
+        Else
+            MsgBox("Wrong!")
+        End If
+
+        'Dim operationType As Integer = RandomOperator()
+        '    If operationType = 0 Then
+        '        AddRadioButton.Checked = True
+        '    ElseIf operationType = 1 Then
+        '        SubtractRadioButton.Checked = True
+        '    ElseIf operationType = 2 Then
+        '        MultiplyRadioButton.Checked = True
+        '    Else
+        '        DivideRadioButton.Checked = True
+        '    End If
+    End Sub
+
+    Function NumberCount() As Integer
+        Dim count As Integer
+        count += 1
+        Return count
+    End Function
+
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        AddRadioButton.Checked = True
     End Sub
 End Class
