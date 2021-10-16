@@ -46,6 +46,7 @@ Partial Class MathContestForm
         Me.SummaryButton = New System.Windows.Forms.Button()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.SubmitButton = New System.Windows.Forms.Button()
+        Me.RoundingMessageLabel = New System.Windows.Forms.Label()
         Me.StudentInfoGroupBox.SuspendLayout()
         Me.MathProblemGroupBox.SuspendLayout()
         Me.MathProblemTypeGroupBox.SuspendLayout()
@@ -283,11 +284,21 @@ Partial Class MathContestForm
         Me.SubmitButton.Text = "Submit"
         Me.SubmitButton.UseVisualStyleBackColor = True
         '
+        'RoundingMessageLabel
+        '
+        Me.RoundingMessageLabel.AutoSize = True
+        Me.RoundingMessageLabel.Location = New System.Drawing.Point(26, 604)
+        Me.RoundingMessageLabel.Name = "RoundingMessageLabel"
+        Me.RoundingMessageLabel.Size = New System.Drawing.Size(375, 50)
+        Me.RoundingMessageLabel.TabIndex = 6
+        Me.RoundingMessageLabel.Text = "Round any value at 0.5 or greater up. " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Round any value less than 0.5 down."
+        '
         'MathContestForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1161, 689)
+        Me.Controls.Add(Me.RoundingMessageLabel)
         Me.Controls.Add(Me.SelectionButtonsGroupBox)
         Me.Controls.Add(Me.MathProblemTypeGroupBox)
         Me.Controls.Add(Me.MathProblemGroupBox)
@@ -302,6 +313,7 @@ Partial Class MathContestForm
         Me.MathProblemTypeGroupBox.PerformLayout()
         Me.SelectionButtonsGroupBox.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -329,4 +341,5 @@ Partial Class MathContestForm
     Friend WithEvents SummaryButton As Button
     Friend WithEvents ClearButton As Button
     Friend WithEvents SubmitButton As Button
+    Friend WithEvents RoundingMessageLabel As Label
 End Class
