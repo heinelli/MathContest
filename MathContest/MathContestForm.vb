@@ -26,9 +26,11 @@ Public Class MathContestForm
             If CInt(StudentAgeTextBox.Text) < 7 Or CInt(StudentAgeTextBox.Text) > 11 Then
                 MsgBox("Student not eligible to compete.")
                 StudentAgeTextBox.Text = ""
+                StudentAgeTextBox.Select()
             End If
         Catch ex As Exception
             StudentAgeTextBox.Text = ""
+            StudentAgeTextBox.Select()
         End Try
     End Sub
 
@@ -37,9 +39,11 @@ Public Class MathContestForm
             If CInt(StudentGradeTextBox.Text) < 1 Or CInt(StudentGradeTextBox.Text) > 4 Then
                 MsgBox("Student not eligible to compete.")
                 StudentGradeTextBox.Text = ""
+                StudentGradeTextBox.Select()
             End If
         Catch ex As Exception
             StudentGradeTextBox.Text = ""
+            StudentGradeTextBox.Select()
         End Try
     End Sub
 
@@ -60,26 +64,38 @@ Public Class MathContestForm
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         Dim correctAnswer As Integer
         Dim roundedNumber As Double
+        Dim firstNumberCheck As Integer
+        Dim secondNumberCheck As Integer
 
-        If AddRadioButton.Checked = True Then
-            correctAnswer = CInt(FirstNumberTextBox.Text) + CInt(SecondNumberTextBox.Text)
-        ElseIf SubtractRadioButton.Checked = True Then
-            correctAnswer = CInt(FirstNumberTextBox.Text) - CInt(SecondNumberTextBox.Text)
-        ElseIf MultiplyRadioButton.Checked = True Then
-            correctAnswer = CInt(FirstNumberTextBox.Text) * CInt(SecondNumberTextBox.Text)
-        ElseIf DivideRadioButton.Checked = True Then
-            roundedNumber = Math.Round((CInt(FirstNumberTextBox.Text) / CInt(SecondNumberTextBox.Text)), MidpointRounding.AwayFromZero)
-            correctAnswer = CInt(roundedNumber)
-        End If
-        If StudentAnswerTextBox.Text = CStr(correctAnswer) Then
-            MsgBox("Congratulations!")
-            SuccessfulAnswer += 1
-        Else
-            MsgBox("Wrong!
+        Try
+            If AddRadioButton.Checked = True Then
+                correctAnswer = CInt(FirstNumberTextBox.Text) + CInt(SecondNumberTextBox.Text)
+            ElseIf SubtractRadioButton.Checked = True Then
+                correctAnswer = CInt(FirstNumberTextBox.Text) - CInt(SecondNumberTextBox.Text)
+            ElseIf MultiplyRadioButton.Checked = True Then
+                correctAnswer = CInt(FirstNumberTextBox.Text) * CInt(SecondNumberTextBox.Text)
+            ElseIf DivideRadioButton.Checked = True Then
+                roundedNumber = Math.Round((CInt(FirstNumberTextBox.Text) / CInt(SecondNumberTextBox.Text)), MidpointRounding.AwayFromZero)
+                correctAnswer = CInt(roundedNumber)
+            End If
+            If StudentAnswerTextBox.Text = CStr(correctAnswer) Then
+                MsgBox("Congratulations!")
+                SuccessfulAnswer += 1
+            Else
+                MsgBox("Wrong!
 The correct answer is " & correctAnswer)
-        End If
+            End If
+            QuestionCount += 1
+        Catch
+            MsgBox("Enter whole numbers please.")
+        End Try
 
-        QuestionCount += 1
+        'If TypeOf FirstNumberTextBox.Text Is String Then
+        '    FirstNumberTextBox.Text = ""
+        'End If
+
+
+
 
     End Sub
 
