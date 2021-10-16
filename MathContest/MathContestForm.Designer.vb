@@ -162,21 +162,21 @@ Partial Class MathContestForm
         Me.StudentAnswerTextBox.Location = New System.Drawing.Point(26, 290)
         Me.StudentAnswerTextBox.Name = "StudentAnswerTextBox"
         Me.StudentAnswerTextBox.Size = New System.Drawing.Size(268, 31)
-        Me.StudentAnswerTextBox.TabIndex = 4
+        Me.StudentAnswerTextBox.TabIndex = 5
         '
         'SecondNumberTextBox
         '
         Me.SecondNumberTextBox.Location = New System.Drawing.Point(26, 190)
         Me.SecondNumberTextBox.Name = "SecondNumberTextBox"
         Me.SecondNumberTextBox.Size = New System.Drawing.Size(268, 31)
-        Me.SecondNumberTextBox.TabIndex = 3
+        Me.SecondNumberTextBox.TabIndex = 4
         '
         'FirstNumberTextBox
         '
         Me.FirstNumberTextBox.Location = New System.Drawing.Point(26, 91)
         Me.FirstNumberTextBox.Name = "FirstNumberTextBox"
         Me.FirstNumberTextBox.Size = New System.Drawing.Size(268, 31)
-        Me.FirstNumberTextBox.TabIndex = 2
+        Me.FirstNumberTextBox.TabIndex = 3
         '
         'MathProblemTypeGroupBox
         '

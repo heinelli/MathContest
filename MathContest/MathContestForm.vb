@@ -26,11 +26,9 @@ Public Class MathContestForm
             If CInt(StudentAgeTextBox.Text) < 7 Or CInt(StudentAgeTextBox.Text) > 11 Then
                 MsgBox("Student not eligible to compete.")
                 StudentAgeTextBox.Text = ""
-                StudentAgeTextBox.Focus()
             End If
         Catch ex As Exception
             StudentAgeTextBox.Text = ""
-            StudentAgeTextBox.Focus()
         End Try
     End Sub
 
@@ -39,11 +37,9 @@ Public Class MathContestForm
             If CInt(StudentGradeTextBox.Text) < 1 Or CInt(StudentGradeTextBox.Text) > 4 Then
                 MsgBox("Student not eligible to compete.")
                 StudentGradeTextBox.Text = ""
-                StudentGradeTextBox.Focus()
             End If
         Catch ex As Exception
             StudentGradeTextBox.Text = ""
-            StudentGradeTextBox.Focus()
         End Try
     End Sub
 
@@ -84,18 +80,7 @@ The correct answer is " & correctAnswer)
         End If
 
         QuestionCount += 1
-        MsgBox(SuccessfulAnswer & " out of " & QuestionCount & " questions correct.")
 
-        'Dim operationType As Integer = RandomOperator()
-        '    If operationType = 0 Then
-        '        AddRadioButton.Checked = True
-        '    ElseIf operationType = 1 Then
-        '        SubtractRadioButton.Checked = True
-        '    ElseIf operationType = 2 Then
-        '        MultiplyRadioButton.Checked = True
-        '    Else
-        '        DivideRadioButton.Checked = True
-        '    End If
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
@@ -116,4 +101,8 @@ The correct answer is " & correctAnswer)
 
     Private QuestionCount As Integer = 0
     Private SuccessfulAnswer As Integer = 0
+
+    Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
+        MsgBox(SuccessfulAnswer & " out of " & QuestionCount & " questions correct.")
+    End Sub
 End Class
