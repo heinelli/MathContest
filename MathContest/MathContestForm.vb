@@ -66,8 +66,10 @@ Public Class MathContestForm
         Dim roundedNumber As Double
         Dim firstNumberCheck As Integer
         Dim secondNumberCheck As Integer
+        Dim answerCheck As Integer
 
         Try
+            answerCheck = CInt(StudentAnswerTextBox.Text)
             If AddRadioButton.Checked = True Then
                 correctAnswer = CInt(FirstNumberTextBox.Text) + CInt(SecondNumberTextBox.Text)
             ElseIf SubtractRadioButton.Checked = True Then
@@ -88,6 +90,25 @@ The correct answer is " & correctAnswer)
             QuestionCount += 1
         Catch
             MsgBox("Enter whole numbers please.")
+
+            Try
+                firstNumberCheck = CInt(FirstNumberTextBox.Text)
+            Catch ex As Exception
+                FirstNumberTextBox.Text = ""
+            End Try
+
+            Try
+                secondNumberCheck = CInt(SecondNumberTextBox.Text)
+            Catch ex As Exception
+                SecondNumberTextBox.Text = ""
+            End Try
+
+            Try
+                answerCheck = CInt(StudentAnswerTextBox.Text)
+            Catch ex As Exception
+                StudentAnswerTextBox.Text = ""
+            End Try
+
         End Try
 
         'If TypeOf FirstNumberTextBox.Text Is String Then
