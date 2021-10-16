@@ -17,6 +17,7 @@ Public Class MathContestForm
     End Sub
 
     Private Sub AgeCheck(sender As Object, e As EventArgs) Handles StudentAgeTextBox.Leave
+        'Verify that correct age is typed into textbox. Erase input if value doesn't meet contest criteria.
         Try
             If CInt(StudentAgeTextBox.Text) < 7 Or CInt(StudentAgeTextBox.Text) > 11 Then
                 MsgBox("Student not eligible to compete.")
@@ -30,6 +31,7 @@ Public Class MathContestForm
     End Sub
 
     Private Sub GradeCheck(sender As Object, e As EventArgs) Handles StudentGradeTextBox.Leave
+        'Verify that correct grade is typed into textbox. Erase input if value doesn't meet contest criteria.
         Try
             If CInt(StudentGradeTextBox.Text) < 1 Or CInt(StudentGradeTextBox.Text) > 4 Then
                 MsgBox("Student not eligible to compete.")
@@ -42,13 +44,6 @@ Public Class MathContestForm
         End Try
     End Sub
 
-    'Function RandomNumber() As Integer
-    '    Dim rndNumber As Integer
-    '    Randomize()
-    '    rndNumber = CInt(System.Math.Floor(Rnd() * (20 + 1)))
-    '    Return rndNumber
-    'End Function
-
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         Dim correctAnswer As Integer
         Dim roundedNumber As Double
@@ -59,7 +54,6 @@ Public Class MathContestForm
         If StudentNameTextBox.Text = "" Or StudentGradeTextBox.Text = "" Or StudentAgeTextBox.Text = "" Then
             MsgBox("Finish filling out student information.")
         Else
-
             Try
                 answerCheck = CInt(StudentAnswerTextBox.Text)
                 If AddRadioButton.Checked = True Then
@@ -83,6 +77,7 @@ The correct answer is " & correctAnswer)
             Catch
                 MsgBox("Enter whole numbers please.")
 
+                'Catch statements used to clear input data in textboxes with incorrect data type.
                 Try
                     firstNumberCheck = CInt(FirstNumberTextBox.Text)
                 Catch ex As Exception
@@ -101,6 +96,7 @@ The correct answer is " & correctAnswer)
                     StudentAnswerTextBox.Text = ""
                 End Try
 
+                'Place cursor in textbox with incorrect data type.
                 If FirstNumberTextBox.Text = "" Then
                     FirstNumberTextBox.Select()
                 ElseIf SecondNumberTextBox.Text = "" Then
@@ -110,10 +106,10 @@ The correct answer is " & correctAnswer)
                 End If
             End Try
         End If
-
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        'Clear all data input from the user.
         AddRadioButton.Checked = True
         FirstNumberTextBox.Text = ""
         SecondNumberTextBox.Text = ""
@@ -125,19 +121,9 @@ The correct answer is " & correctAnswer)
         SuccessfulAnswer = 0
     End Sub
 
-    Private Sub DivideRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles DivideRadioButton.Click
-        RoundingMessageLabel.Visible = True
-        'MsgBox("Round any value at 0.5 or greater up. Round any value less than 0.5 down.")
-    End Sub
-
-
-
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
         MsgBox(SuccessfulAnswer & " out of " & QuestionCount & " questions correct.")
     End Sub
-
-    Private QuestionCount As Integer = 0
-    Private SuccessfulAnswer As Integer = 0
 
     Private Sub AddRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles AddRadioButton.CheckedChanged
         RoundingMessageLabel.Visible = False
@@ -150,4 +136,13 @@ The correct answer is " & correctAnswer)
     Private Sub MultiplyRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles MultiplyRadioButton.CheckedChanged
         RoundingMessageLabel.Visible = False
     End Sub
+
+    Private Sub DivideRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles DivideRadioButton.Click
+        RoundingMessageLabel.Visible = True
+        'MsgBox("Round any value at 0.5 or greater up. Round any value less than 0.5 down.")
+    End Sub
+
+    'Private subs used to count number of attempts and number of correct answers.
+    Private QuestionCount As Integer = 0
+    Private SuccessfulAnswer As Integer = 0
 End Class
