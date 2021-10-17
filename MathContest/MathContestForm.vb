@@ -53,6 +53,13 @@ Public Class MathContestForm
 
         If StudentNameTextBox.Text = "" Or StudentGradeTextBox.Text = "" Or StudentAgeTextBox.Text = "" Then
             MsgBox("Finish filling out student information.")
+            If StudentNameTextBox.Text = "" Then
+                StudentNameTextBox.Select()
+            ElseIf StudentAgeTextBox.Text = "" Then
+                StudentAgeTextBox.Select()
+            Else
+                StudentGradeTextBox.Select()
+            End If
         Else
             Try
                 answerCheck = CInt(StudentAnswerTextBox.Text)
@@ -106,6 +113,8 @@ The correct answer is " & correctAnswer)
                 End If
             End Try
         End If
+
+
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
