@@ -70,7 +70,7 @@ Public Class MathContestForm
                     MsgBox("Congratulations!")
                     SuccessfulAnswer += 1
                 Else
-                    MsgBox("Wrong!
+                    MsgBox("Incorrect.
 The correct answer is " & correctAnswer)
                 End If
                 QuestionCount += 1
