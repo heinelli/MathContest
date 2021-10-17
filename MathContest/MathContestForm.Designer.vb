@@ -318,8 +318,10 @@ Partial Class MathContestForm
         '
         'MathContestForm
         '
+        Me.AcceptButton = Me.SubmitButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(1161, 689)
         Me.Controls.Add(Me.RoundingMessageLabel)
         Me.Controls.Add(Me.SelectionButtonsGroupBox)

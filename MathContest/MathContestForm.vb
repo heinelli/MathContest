@@ -125,21 +125,24 @@ The correct answer is " & correctAnswer)
         MsgBox(SuccessfulAnswer & " out of " & QuestionCount & " questions correct.")
     End Sub
 
+    Private Sub DivideRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles DivideRadioButton.Click
+        'Display message to inform user how to round in program.
+        RoundingMessageLabel.Visible = True
+    End Sub
+
     Private Sub AddRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles AddRadioButton.CheckedChanged
+        'Disable rounding message.
         RoundingMessageLabel.Visible = False
     End Sub
 
     Private Sub SubtractRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles SubtractRadioButton.CheckedChanged
+        'Disable rounding message.
         RoundingMessageLabel.Visible = False
     End Sub
 
     Private Sub MultiplyRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles MultiplyRadioButton.CheckedChanged
+        'Disable rounding message.
         RoundingMessageLabel.Visible = False
-    End Sub
-
-    Private Sub DivideRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles DivideRadioButton.Click
-        RoundingMessageLabel.Visible = True
-        'MsgBox("Round any value at 0.5 or greater up. Round any value less than 0.5 down.")
     End Sub
 
     'Private subs used to count number of attempts and number of correct answers.
@@ -147,6 +150,7 @@ The correct answer is " & correctAnswer)
     Private SuccessfulAnswer As Integer = 0
 
     Private Sub StudentNameTextBox_Leave(sender As Object, e As EventArgs) Handles StudentNameTextBox.Leave
+        'Prevent user from leaving textbox if no data is input.
         If StudentNameTextBox.Text = "" Then
             StudentNameTextBox.Select()
         End If
