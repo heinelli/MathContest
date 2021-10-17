@@ -146,4 +146,9 @@ The correct answer is " & correctAnswer)
     Private QuestionCount As Integer = 0
     Private SuccessfulAnswer As Integer = 0
 
+    Private Sub StudentNameTextBox_Leave(sender As Object, e As EventArgs) Handles StudentNameTextBox.Leave
+        If StudentNameTextBox.Text = "" Then
+            StudentNameTextBox.Select()
+        End If
+    End Sub
 End Class
