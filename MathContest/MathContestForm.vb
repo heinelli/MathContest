@@ -145,4 +145,5 @@ The correct answer is " & correctAnswer)
     'Private subs used to count number of attempts and number of correct answers.
     Private QuestionCount As Integer = 0
     Private SuccessfulAnswer As Integer = 0
+
 End Class
