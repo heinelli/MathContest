@@ -154,14 +154,14 @@ The correct answer is " & correctAnswer)
         RoundingMessageLabel.Visible = False
     End Sub
 
-    'Private subs used to count number of attempts and number of correct answers.
-    Private QuestionCount As Integer = 0
-    Private SuccessfulAnswer As Integer = 0
-
     Private Sub StudentNameTextBox_Leave(sender As Object, e As EventArgs) Handles StudentNameTextBox.Leave
         'Prevent user from leaving textbox if no data is input.
         If StudentNameTextBox.Text = "" Then
             StudentNameTextBox.Select()
         End If
     End Sub
+
+    'Private subs used to count number of attempts and number of correct answers.
+    Private QuestionCount As Integer = 0
+    Private SuccessfulAnswer As Integer = 0
 End Class
