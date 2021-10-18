@@ -305,9 +305,9 @@ Partial Class MathContestForm
         Me.RoundingMessageLabel.AutoSize = True
         Me.RoundingMessageLabel.Location = New System.Drawing.Point(26, 604)
         Me.RoundingMessageLabel.Name = "RoundingMessageLabel"
-        Me.RoundingMessageLabel.Size = New System.Drawing.Size(375, 50)
+        Me.RoundingMessageLabel.Size = New System.Drawing.Size(363, 50)
         Me.RoundingMessageLabel.TabIndex = 6
-        Me.RoundingMessageLabel.Text = "Round any value at 0.5 or greater up. " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Round any value less than 0.5 down."
+        Me.RoundingMessageLabel.Text = "Round any value at .5 or greater up. " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Round any value less than .5 down."
         '
         'GeneralToolTip
         '
