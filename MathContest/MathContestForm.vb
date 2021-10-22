@@ -22,11 +22,11 @@ Public Class MathContestForm
             If CInt(StudentAgeTextBox.Text) < 7 Or CInt(StudentAgeTextBox.Text) > 11 Then
                 MsgBox("Student not eligible to compete.")
                 StudentAgeTextBox.Text = ""
-                StudentAgeTextBox.Select()
+                'StudentAgeTextBox.Select() 'this causes focus to be stuck on text box. not wrong but annoys user - TJR
             End If
         Catch ex As Exception
             StudentAgeTextBox.Text = ""
-            StudentAgeTextBox.Select()
+            'StudentAgeTextBox.Select() 'this causes focus to be stuck on text box. not wrong but annoys user - TJR
         End Try
     End Sub
 
@@ -36,11 +36,11 @@ Public Class MathContestForm
             If CInt(StudentGradeTextBox.Text) < 1 Or CInt(StudentGradeTextBox.Text) > 4 Then
                 MsgBox("Student not eligible to compete.")
                 StudentGradeTextBox.Text = ""
-                StudentGradeTextBox.Select()
+                'StudentGradeTextBox.Select() 'this causes focus to be stuck on text box. not wrong but annoys user - TJR
             End If
         Catch ex As Exception
             StudentGradeTextBox.Text = ""
-            StudentGradeTextBox.Select()
+            'StudentGradeTextBox.Select() 'this causes focus to be stuck on text box. not wrong but annoys user - TJR
         End Try
     End Sub
 
@@ -157,11 +157,14 @@ The correct answer is " & correctAnswer)
     Private Sub StudentNameTextBox_Leave(sender As Object, e As EventArgs) Handles StudentNameTextBox.Leave
         'Prevent user from leaving textbox if no data is input.
         If StudentNameTextBox.Text = "" Then
-            StudentNameTextBox.Select()
+            'StudentNameTextBox.Select() 'this causes focus to be stuck on text box. not wrong but annoys user - TJR
+            StudentNameTextBox.BackColor = Color.LightYellow 'Try this instead - TJR
         End If
     End Sub
 
+    'These are global/Class level variables not subs.  - TJR
+    'keep variable declarations at the top of the scope Class, Sub, Function etc. -TJR 
     'Private subs used to count number of attempts and number of correct answers.
-    Private QuestionCount As Integer = 0
-    Private SuccessfulAnswer As Integer = 0
+    Private QuestionCount As Integer = 0 'camelCase - TJR
+    Private SuccessfulAnswer As Integer = 0 'camelCase - TJR
 End Class
